@@ -1,0 +1,13 @@
+mat-sidenav-container {
+    height: 95%;
+}
+
+mat-sidenav,
+mat-sidenav-content {
+    padding: 16px;
+}
+
+body {
+    background-image: url('../assets/images/tex.png');
+    background-repeat: repeat;
+}

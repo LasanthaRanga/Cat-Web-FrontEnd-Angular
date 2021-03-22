@@ -1,0 +1,85 @@
+<!-- <mat-toolbar color="primary" class="navbar">
+  <span>{{name}}</span>
+  <span class="flex-spacer"></span> 
+   <div>
+    <button mat-icon-button  routerLink="/onhome">
+      <mat-icon>home</mat-icon>
+    </button>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="menuButton">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+<mat-menu #menu="matMenu" class="manuitem">
+  <button mat-menu-item (click)="logOut()">
+    <mat-icon>exit_to_app</mat-icon>
+    <span>Logout</span>
+  </button>
+</mat-menu> -->
+
+
+<div class="container">
+
+  <mat-tab-group>
+    <mat-tab label="Assessment Data">
+
+      <br>
+
+
+      <mat-card class="example-card" class="col-md-8 offset-md-2">
+        <mat-card-header>
+          <mat-card-title>Map Your Assessment</mat-card-title>
+          <mat-card-subtitle>You Have to map your assessment property with your online account befor online payment
+          </mat-card-subtitle>
+        </mat-card-header>
+        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+        <mat-card-content>
+
+
+
+          <mat-form-field class="col-md-12">
+            <input matInput type="text" id="owner" [(ngModel)]="owner" required placeholder="Owner Name" />
+          </mat-form-field>
+          <br>
+          <mat-form-field class="col-md-12">
+            <input matInput type="text" id="kform" [(ngModel)]="kform" placeholder="K-form ID" />
+          </mat-form-field>
+          <br>
+          <mat-form-field class="col-md-12">
+            <input matInput type="text" id="" [(ngModel)]="astno" placeholder="Assessment Number" />
+          </mat-form-field>
+          <br>
+          <mat-form-field class="col-md-12">
+            <input matInput type="text" id="" [(ngModel)]="street" placeholder="Street Name" />
+          </mat-form-field>
+          <br>
+          <mat-form-field class="col-md-12">
+            <input matInput type="text" id="recit" [(ngModel)]="recit" placeholder="Last Paid Recipt Number" />
+          </mat-form-field>
+          <br>
+          <mat-form-field class="col-md-12">
+            <textarea matInput type="text" id="des" [(ngModel)]="des" placeholder="Description"></textarea>
+          </mat-form-field>
+          <br>
+          <mat-card-actions align="right">
+            <button mat-raised-button type="submit" (click)="map()" color="primary" type="submit">Submit</button>
+          </mat-card-actions>
+
+
+
+
+        </mat-card-content>
+
+      </mat-card>
+      <br>
+      <br>
+
+
+    </mat-tab>
+    <!-- <mat-tab label="Shop Data"> Content 2 </mat-tab> -->
+    <!-- <mat-tab label="Trade Licens Data"> Content 3 </mat-tab> -->
+  </mat-tab-group>
+
+
+
+</div>

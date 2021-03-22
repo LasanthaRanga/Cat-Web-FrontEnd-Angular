@@ -1,0 +1,113 @@
+<div class="container">
+    <br>
+    <div>
+        <button mat-raised-button color="primary" [routerLink]="['/allvehicle']"> <span class="material-icons">
+                arrow_back
+            </span> Back To All Vehicles</button>
+    </div>
+    <br>
+
+    <div class="row">
+
+        <div *ngFor="let att of attach" class="col-md-3">
+            <p *ngIf="!att.file && att.img!=null"></p>
+            <img [src]="att.img" class="img-thumbnail">
+        </div>
+
+    </div>
+
+    <br>
+
+
+
+
+
+    <mat-card>
+        <mat-card-title>
+            Vehicle : {{number}}</mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+        <hr>
+        <mat-card-content>
+
+
+
+        </mat-card-content>
+    </mat-card>
+    <br>
+    <br>
+    <div class="row">
+
+
+        <div class="col-md-3" (click)="goToTools()" style="text-align: center; padding-bottom: 20px;">
+            <mat-card>
+                <img [src]="tools" class="img-thumbnail" />
+                <p> Tools And Accessories </p>
+            </mat-card>
+        </div>
+
+
+        <div class="col-md-3" (click)="goToFuelC()" style="text-align: center;padding-bottom: 20px;">
+            <mat-card>
+                <img [src]="fuel" class="img-thumbnail" />
+                <p>Fuel Consumption </p>
+            </mat-card>
+        </div>
+
+        <div class="col-md-3" (click)="goToLicences()" style="text-align: center;padding-bottom: 20px;">
+            <mat-card>
+                <img [src]="licens" class="img-thumbnail" />
+                <p>Annual Licences </p>
+            </mat-card>
+        </div>
+
+        <div class="col-md-3" (click)="goToRepairs()" style="text-align: center;padding-bottom: 20px;">
+            <mat-card>
+                <img [src]="repair" class="img-thumbnail" />
+                <p>Repairs Or Replacements</p>
+            </mat-card>
+        </div>
+
+        <div class="col-md-3" (click)="goToTyres()" style="text-align: center;padding-bottom: 20px;">
+            <mat-card>
+                <img [src]="tire" class="img-thumbnail" />
+                <p>Tyres Replacements</p>
+            </mat-card>
+        </div>
+
+        <div class="col-md-3" (click)="goToService()" style="text-align: center;padding-bottom: 20px;">
+            <mat-card>
+                <img [src]="service" class="img-thumbnail" />
+                <p>Servicing</p>
+            </mat-card>
+        </div>
+
+        <div class="col-md-3" (click)="goToChange()" style="text-align: center;padding-bottom: 20px;">
+            <mat-card>
+                <img [src]="driver" class="img-thumbnail" />
+                <p>Changes Drivers  </p>
+            </mat-card>
+        </div>
+
+        <div class="col-md-3" (click)="goToUpload()" style="text-align: center;padding-bottom: 20px;">
+            <mat-card>
+                <img [src]="photo" class="img-thumbnail" />
+                <p>Upload</p>
+            </mat-card>
+        </div>
+
+        <div class="col-md-3" (click)="update()" style="text-align: center;padding-bottom: 20px;">
+            <mat-card>
+                <img [src]="upda" class="img-thumbnail" />
+                <p>Update Basic Information</p>
+            </mat-card>
+        </div>
+
+
+
+
+
+
+    </div>
+    <br>
+
+</div>

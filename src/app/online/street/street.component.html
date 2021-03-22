@@ -1,0 +1,32 @@
+<div class="container">
+
+
+
+    <mat-card class="example-card" class="col-md-12">
+        <mat-card-header>
+            <mat-card-title>Street Line Application</mat-card-title>
+            <mat-card-subtitle>You Have to map your assessment property with your online account befor online
+                payment
+            </mat-card-subtitle>
+        </mat-card-header>
+        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+        <mat-card-content>
+
+            <mat-form-field class="col-md-12">
+                <input matInput type="text" disabled id="owner" name="owner" required placeholder="Owner Name"
+                    [(ngModel)]="applicantName" />
+            </mat-form-field>
+            <br>
+            <mat-form-field class="col-md-12">
+                <input matInput type="text" id="kform" name="kform" placeholder="K-form ID" [(ngModel)]="appAddress" />
+            </mat-form-field>
+
+        </mat-card-content>
+        <mat-card-actions align="right">
+            <button mat-raised-button type="submit" (click)="save()" color="primary" type="submit">Submit</button>
+        </mat-card-actions>
+    </mat-card>
+
+    <img src="https://images.pexels.com/photos/5004611/pexels-photo-5004611.jpeg?cs=srgb&dl=pexels-shamil-malinda-5004611.jpg&fm=jpg">
+
+</div>

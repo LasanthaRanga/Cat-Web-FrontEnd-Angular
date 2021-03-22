@@ -1,0 +1,51 @@
+<div class="container">
+    <!-- Content here -->
+    <br>
+    <div class="row" style="margin-top:10%">
+        <div class="col-md-4 offset-md-4">
+            <mat-card>
+                <mat-card-title>Recover</mat-card-title>
+                <mat-card-subtitle>Enter your mobile number and verify</mat-card-subtitle>
+                <mat-card-content class="example-container">
+
+
+                    <mat-form-field class="col-md-12" *ngIf="!active">
+                        <input matInput type="tel" id="mobie" [(ngModel)]="mobile" placeholder="Mobile Number" />
+                    </mat-form-field>
+
+                    <mat-form-field class="col-md-12" *ngIf="active && !active2">
+                        <input matInput type="text" id="code" [(ngModel)]="verification"
+                            placeholder="Verification Code" />
+                    </mat-form-field>
+
+                    <mat-form-field class="col-md-12" *ngIf="active2">
+                        <input matInput type="password" id="pword" [(ngModel)]="password" placeholder="New Password" />
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field class="col-md-12" *ngIf="active2">
+                        <input matInput type="password" id="pword" [(ngModel)]="password2"
+                            placeholder="Verify Password" />
+                    </mat-form-field>
+
+
+                    <div *ngIf="loadign" class="row justify-content-md-center">
+                        <mat-spinner></mat-spinner>
+                    </div>
+
+                </mat-card-content>
+                <mat-card-actions align="end">
+                    
+                    <button mat-raised-button color="primary" (click)="gerVerification()" type="submit"
+                        *ngIf="!active">Submint</button>
+
+                    <button mat-raised-button color="primary" (click)="recover()" type="submit"
+                        *ngIf="active && !active2">Recover</button>
+
+                    <button mat-raised-button color="primary" (click)="resetPassword()" type="submit" *ngIf="active2">Reset
+                        Password</button>
+
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>
