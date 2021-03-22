@@ -1,32 +1,117 @@
 <div class="container">
 
 
-
-    <mat-card class="example-card" class="col-md-12">
-        <mat-card-header>
-            <mat-card-title>Street Line Application</mat-card-title>
-            <mat-card-subtitle>You Have to map your assessment property with your online account befor online
+    <mat-tab-group mat-align-tabs="left">
+        <mat-tab label="Application"> 
+            <br>
+            <mat-card class="example-card" class="col-md-12">
+                <mat-card-header>
+                    <mat-card-title>Street Line Application</mat-card-title>
+                    <!-- <mat-card-subtitle>You Have to map your assessment property with your online account befor online
                 payment
-            </mat-card-subtitle>
-        </mat-card-header>
-        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-        <mat-card-content>
+            </mat-card-subtitle> -->
+                </mat-card-header>
+                <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+                <mat-card-content>
 
+                    <mat-form-field class="col-md-12">
+                        <input matInput type="text" [readonly]="true" id="owner" name="owner" required placeholder="සහතික හිමිකරුගේ නම (Certificate Owner Name)"
+                            [(ngModel)]="applicantName" />
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field class="col-md-12">
+                        <input matInput type="text" [readonly]="true" id="owneradd" name="owneraddress" required placeholder="සහතික හිමිකරුගේ ලිපිනය (Certificate Owner Address)"
+                            [(ngModel)]="appAddress" />
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field class="col-md-12">
+                        <input matInput type="text" [readonly]="true" id="planno" name="planno" required placeholder="සැලසුම් අංකය (Plan No)"
+                            [(ngModel)]="planno" />
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field class="col-md-12">
+                        <input matInput type="text" [readonly]="true" id="plandate" name="plandate" required placeholder="සැලසුම් දිනය (Plan Date)"
+                            [(ngModel)]="plandate" />
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field class="col-md-12">
+                        <input matInput type="text" [readonly]="true" id="deedno" name="deedno" required placeholder="ඔප්පු අංකය (Deed No)"
+                            [(ngModel)]="deedno" />
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field class="col-md-12">
+                        <input matInput type="text" [readonly]="true" id="surveyname" name="surveyname" required placeholder="මිනින්දෝරු නම (Surveyor Name)"
+                            [(ngModel)]="surveyname" />
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field class="col-md-12">
+                        <input matInput type="text" [readonly]="true" id="landsize" name="landsize" required placeholder="ඉඩමේ ප්‍රමාණය(Land Size)"
+                            [(ngModel)]="landsize" />
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field class="col-md-12">
+                        <input matInput type="text" id="lotno" name="lotno" required placeholder="කැබලි අංකය (lot No)"
+                            [(ngModel)]="lotno" />
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field class="col-md-12">
+                        <input matInput type="text" id="purpose" name="purpose" required placeholder="හේතුව (Purpose)"
+                            [(ngModel)]="purpose" />
+                    </mat-form-field>
+                    <br>
+
+                </mat-card-content>
+                <mat-card-actions align="right">
+                    <button mat-raised-button type="submit" (click)="getslrefno()" color="primary" type="submit">Submit</button>
+                </mat-card-actions>
+            </mat-card>
+
+            <br />
+            <img src="http://124.43.8.250:3032/sl_images/Street_line/100/Deed1.jpg"
+                width="150px" height="200px">&nbsp;&nbsp;
+            <img src="http://124.43.8.250:3032/sl_images/Street_line/100/Deed2.jpg"
+                width="150px" height="200px">&nbsp;&nbsp;
+            <img src="http://124.43.8.250:3032/sl_images/Street_line/100/Deed3.jpg"
+                width="150px" height="200px">&nbsp;&nbsp;
+            <img src="http://124.43.8.250:3032/sl_images/Street_line/100/Deed4.jpg"
+                width="150px" height="200px">&nbsp;&nbsp;
+            <img src="http://124.43.8.250:3032/sl_images/Street_line/100/Plan.jpg"
+                width="150px" height="200px">&nbsp;&nbsp;
+
+                <br>
+                <br>
+            <!-- <mat-card>
+
+        <div>
             <mat-form-field class="col-md-12">
-                <input matInput type="text" disabled id="owner" name="owner" required placeholder="Owner Name"
-                    [(ngModel)]="applicantName" />
+                <input matInput type="text" disabled required placeholder="asdf asdf asdf " [(ngModel)]="orCus.cus_name_sinhala" />
             </mat-form-field>
             <br>
             <mat-form-field class="col-md-12">
-                <input matInput type="text" id="kform" name="kform" placeholder="K-form ID" [(ngModel)]="appAddress" />
+                <input matInput type="text" disabled required placeholder="සහතික හිමිකරුගේ ලිපිනය (Certificate Owner Address)"
+                    [(ngModel)]="appAddress" />
             </mat-form-field>
+            <br>
+            <mat-form-field class="col-md-12">
+                <input matInput type="text" disabled required placeholder="සැලසුම් අංකය (Plan No)" [(ngModel)]="planno" />
+            </mat-form-field>
+            <br>
+        </div>
 
-        </mat-card-content>
-        <mat-card-actions align="right">
-            <button mat-raised-button type="submit" (click)="save()" color="primary" type="submit">Submit</button>
-        </mat-card-actions>
-    </mat-card>
+    </mat-card> -->
 
-    <img src="https://images.pexels.com/photos/5004611/pexels-photo-5004611.jpeg?cs=srgb&dl=pexels-shamil-malinda-5004611.jpg&fm=jpg">
+
+        </mat-tab>
+        <mat-tab label="Certificate">
+            Print Certificate
+        
+        
+        
+        
+        </mat-tab>
+        <!-- <mat-tab label="Third">Content 3</mat-tab> -->
+    </mat-tab-group>
+
+
 
 </div>

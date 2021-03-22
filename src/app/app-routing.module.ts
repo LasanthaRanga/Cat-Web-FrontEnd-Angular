@@ -46,6 +46,11 @@ import { WaterComponent } from './online/water/water.component';
 import { GullyComponent } from './gully/gully.component';
 import { OnpayComponent } from './online/onpay/onpay.component';
 import { WaterbowserComponent } from './waterbowser/waterbowser.component';
+import { SlcomplainComponent } from './online/slcomplain/slcomplain.component';
+import { SccomComponent } from './online/sccom/sccom.component';
+import { ComplainComponent } from './online/complain/complain.component';
+import { LaComplainComponent } from './la-complain/la-complain.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
@@ -95,6 +100,10 @@ const routes: Routes = [
   { path: 'gully', component:  GullyComponent},
   { path: 'onpay', component:  OnpayComponent},
   { path: 'waterbawser', component:  WaterbowserComponent},
+  { path: 'slcom', component: SccomComponent },
+  { path: 'complain', component: ComplainComponent },
+  { path: 'slcomplain', component: SlcomplainComponent },
+  { path: 'lacomplain', component: LaComplainComponent },
   { path: '**', component: LoginComponent }
 
 ];
@@ -150,5 +159,9 @@ export const routComponents = [
   WaterComponent,
   GullyComponent,
   OnpayComponent,
-  WaterbowserComponent
+  WaterbowserComponent,
+  SlcomplainComponent,
+  SccomComponent,
+  ComplainComponent,
+  LaComplainComponent
 ];
