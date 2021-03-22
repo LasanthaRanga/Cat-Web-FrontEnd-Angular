@@ -41,6 +41,11 @@ import { ReciptComponent } from './online/recipt/recipt.component';
 import { StreetComponent } from './online/street/street.component';
 import { ForgotComponent } from './online/forgot/forgot.component';
 import { InfoComponent } from './online/info/info.component';
+import { OngullyComponent } from './online/ongully/ongully.component';
+import { WaterComponent } from './online/water/water.component';
+import { GullyComponent } from './gully/gully.component';
+import { OnpayComponent } from './online/onpay/onpay.component';
+import { WaterbowserComponent } from './waterbowser/waterbowser.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
@@ -85,6 +90,11 @@ const routes: Routes = [
   { path: 'recipt/:id', component: ReciptComponent },
   { path: 'street', component: StreetComponent },
   { path: 'forgot', component: ForgotComponent },
+  { path: 'ongully', component: OngullyComponent },
+  { path: 'onwater', component:  WaterComponent},
+  { path: 'gully', component:  GullyComponent},
+  { path: 'onpay', component:  OnpayComponent},
+  { path: 'waterbawser', component:  WaterbowserComponent},
   { path: '**', component: LoginComponent }
 
 ];
@@ -135,5 +145,10 @@ export const routComponents = [
   ReciptComponent,
   StreetComponent,
   ForgotComponent,
-  InfoComponent
+  InfoComponent,
+   OngullyComponent,
+  WaterComponent,
+  GullyComponent,
+  OnpayComponent,
+  WaterbowserComponent
 ];

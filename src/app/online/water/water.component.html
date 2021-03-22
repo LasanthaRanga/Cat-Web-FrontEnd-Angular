@@ -1,0 +1,225 @@
+<div class="container">
+    <div class="col-md-12">
+        <mat-tab-group>
+            <mat-tab label="අයදුම්පත් ">
+                <mat-card>
+                    <mat-card-title>
+                        ජල බවුසරය ලබාගැනීම සඳහා මිළ ගණන්
+                    </mat-card-title>
+                    <mat-card-content>
+                        <table class="table table-hover">
+                            <thead class="text-warning">
+                                <th>සේවා ස්ථානයේ ස්වභාවය </th>
+                                <th>නගරසීමාව තුල </th>
+                                <th>නගරසීමාවෙන් පිටත </th>
+                                <th>නගරසීමාවෙන් පිටත කි.මී. 1 කට යාමට සහ ඒමට </th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><label>නිවාස</label> </td>
+                                    <td><label>2500.00</label> </td>
+                                    <td><label>6500.00</label> </td>
+                                    <td><label>100.00</label> </td>
+                                </tr>
+                                <tr>
+                                    <td><label>ව්‍යාපාරික ස්ථාන </label> </td>
+                                    <td><label>6000.00</label> </td>
+                                    <td><label>7000.00</label> </td>
+                                    <td><label>100.00</label> </td>
+                                </tr>
+                                <tr>
+                                    <td><label>රාජ්‍ය ආයතන </label> </td>
+                                    <td><label>6000.00</label> </td>
+                                    <td><label>7000.00</label> </td>
+                                    <td><label>100.00</label> </td>
+                                </tr>
+                                <tr>
+                                    <td><label>පුජනීය ස්ථාන </label> </td>
+                                    <td><label>500.00</label> </td>
+                                    <td><label>500.00</label> </td>
+                                    <td><label>100.00</label> </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card>
+                    <mat-card-title>
+                        ගලි බවුසරය අයඳුම් කිරීම </mat-card-title>
+                    <hr>
+                    <mat-form-field class="col-md-4">
+                        <mat-label>ජල බවුසර් වර්ගය</mat-label>
+                        <mat-select required [(ngModel)]="type">
+                            <mat-option *ngFor="let i of types" [value]="i.wb_type_id">{{i.wb_type_name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field class="col-lg-8 col-md-12">
+                        <mat-label>සේවාව අවශ්‍ය දිනය</mat-label>
+                        <input matInput [matDatepicker]="picker" [(ngModel)]="date">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field class="col-md-4">
+                        <input required [(ngModel)]="adress" matInput type="text"
+                            placeholder="සේවාව ලබාගැනීමට අවශ්‍ය ස්ථානය" />
+                    </mat-form-field>
+
+                    <mat-form-field class="col-md-4">
+                        <input required [(ngModel)]="reason" matInput type="text"
+                            placeholder="ජල බව්සරය අවශ්‍ය කාරණාව " />
+                    </mat-form-field>
+
+                    <mat-radio-group [(ngModel)]="rad" aria-label="" class="col-md-4"
+                        title="නගර සභා සීමාව තුල හෝ පිටතද යන වග ">
+                        <mat-radio-button value="1">ඇත</mat-radio-button>
+                        <mat-radio-button value="2">නැත</mat-radio-button>
+                    </mat-radio-group>
+
+                    <mat-form-field class="col-md-4">
+                        <input required [(ngModel)]="distance" matInput type="text"
+                            placeholder="නගර සභා සීමාවෙන් පිටත නම් නගරයේ සිට ඇති දුර කි.මී" />
+                    </mat-form-field>
+
+                    <mat-form-field class="col-md-4">
+                        <input required [(ngModel)]="time" matInput type="text"
+                            placeholder="ජල බවුසරය තබාගැනීමට අවශ්‍ය කාලය පැය " />
+                    </mat-form-field>
+
+                    <mat-card-actions align="end">
+                        <button class="block" mat-raised-button color="primary" type="submit" (click)="saveBasic()">Save
+                            Data</button>
+                    </mat-card-actions>
+                </mat-card>
+            </mat-tab>
+            <mat-tab label="අනුමත කිරීම සදහා යොමු කිරීම">
+                <mat-card>
+                    <mat-card-title>
+                        <!-- ස්ථානය හා ස්වභාවය අනුව සේවාව සදහා අයකිරිම් -->
+                    </mat-card-title>
+                    <mat-card-content>
+                        <table class="table table-hover">
+                            <thead class="text-warning">
+                                <th>ඉල්ලුම්පත් අංකය</th>
+                                <th>දිනය </th>
+                                <th>සේවාව ලබාගන්නා ස්ථානය</th>
+                                <th>ජල බවුසර් වර්ගය </th>
+                                <th>more</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of userpending_list;">
+                                    <td><label>{{item.wb_detail_id}}</label> </td>
+                                    <td ><label>{{item.wb_date}}</label> </td>
+                                    <td><label>{{item.wb_location}}</label> </td>
+                                    <td ><label>{{item.wb_type_name}}</label> </td>
+                                    <td ><span class="material-icons" (click)="moreby_id(item.wb_detail_id)">read_more</span> </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                        <hr>
+                        <div  *ngIf="condition">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>ඉල්ලුම්පත් අංකය</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            {{moreappid}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>අයඳුම් කල දිනය </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            {{moredate}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>සේවා අවශ්‍ය දිනය</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            {{moredate}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>ජල බවුසර් වර්ගය</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            {{moretype}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>සේවා ලබාගැනීමට අවශ්‍ය ස්ථානය </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            {{moreadress}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>ජල බවුසරය අවශ්‍ය කාරණාව</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            {{morereason}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>නගර සීමාවෙන් පිටත නම් ඇති දුර කි.මී</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            {{moredistance}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>ජල බවුසරය තබාගැනීමට අවශ්‍ය කාලය</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            {{moretime}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>

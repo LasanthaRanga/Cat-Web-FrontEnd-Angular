@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="col-md-12">
+        <mat-card>
+            <mat-card-title>Pending Payment</mat-card-title>
+            <hr>
+            <mat-card-content>
+                <table class="table table-hover">
+                    <thead class="text-warning">
+                        <th>Description</th>
+                        <th>amount</th>
+                        <th>pay</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of list;">
+                            <td><label>{{item.description}}</label> </td>
+                            <td><label>{{item.online_pay_amount}}</label> </td>
+                            <td> <button class="block" mat-raised-button color="primary"
+                                    (click)="addpay(item.onlin_pay_details)">
+                                    pay</button> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </mat-card-content>
+        </mat-card>
+        <br>
+        <div *ngIf="condition">
+            <mat-card>
+
+                <mat-card-title>Payment details</mat-card-title>
+                <hr>
+                <mat-card-content>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>විස්තරය</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label>{{description}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>සේවාව සදහා ගාස්තු</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label>{{payment}} </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>මාර්ග ගත ගාස්තු (0.9%)</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label>{{rate*payment/100}} </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>අයකර ගන්නා මුළු මුදල</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label>{{(payment* rate/100) +payment}}</label>
+                        </div>
+                    </div>
+
+                    <mat-card-actions align="end">
+                        <button class="block" mat-raised-button color="primary" type="submit" (click)="pay()">Pay
+                            now</button>
+                    </mat-card-actions>
+                </mat-card-content>
+
+            </mat-card>
+        </div>
+
+    </div>
+</div>

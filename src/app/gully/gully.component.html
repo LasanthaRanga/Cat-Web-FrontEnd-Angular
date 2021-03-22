@@ -1,0 +1,110 @@
+<div class="container">
+    <div class="col-md-12">
+        <mat-card>
+            <mat-card-title>
+                Pending list</mat-card-title>
+            <hr>
+            <mat-card-content>
+                <table class="table table-hover">
+                    <thead class="text-warning">
+                        <th>ඉල්ලුම්පත් අංකය</th>
+                        <th>දිනය </th>
+                        <th>සේවාව ලබාගන්නා ස්ථානය</th>
+                        <th>ස්ථානයේ ස්වභාවය </th>
+                        <th>more</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of list;">
+                            <td><label>{{item.g_detail_id}}</label> </td>
+                            <td><label>{{item.g_date}}</label> </td>
+                            <td><label>{{item.g_address}}</label> </td>
+                            <td><label>{{item.g_nature}}</label> </td>
+                            <td><span class="material-icons" (click)="moreinfo(item.g_detail_id)">read_more</span> </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br>
+                <hr>
+
+                <div *ngIf="condition">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>ඉල්ලුම්පත් අංකය</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>{{lino}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>ස්ථානීය ස්භාවය</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>{{linature}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>අයදුම්කල දිනය</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>{{lidate}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>සේවාව ලබාගන්නා ස්ථානය නගරසීමාවට</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>{{litown}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>පළාත් පාලන ආයතනය විසින් ඔබේ අයදුම් පත</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>{{liprogress}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <mat-form-field class="col-md-4">
+                            <input required [(ngModel)]="amount" matInput type="text"
+                                placeholder="ඉහත සේවාව සදහා ගාස්තු (රුපියල් )" />
+                        </mat-form-field>
+                    </div>
+
+                    <mat-card-actions align="end">
+                        <button class="block" mat-raised-button color="primary" type="submit" (click)="addamount()">Save
+                            Approve</button>
+                    </mat-card-actions>
+                </div>
+            </mat-card-content>
+            <!-- <mat-card-footer>
+                    
+                </mat-card-footer> -->
+        </mat-card>
+    </div>
+</div>
