@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as statics from '../../global';
 import * as allert from '../../allert';
+import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-street',
@@ -10,8 +12,15 @@ import * as allert from '../../allert';
 })
 export class StreetComponent implements OnInit {
 
+  displayedColumns: string[] = ['slDate', 'cus_name_sinhala', 'sl_reference_no', 'cus_mobile', 'idStreetLine'];
+  dataSource = <any>[];
+
   //url = statics.ip;
   sline = statics.ip + 'street/';
+
+  // @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+  // @ViewChild(MatSort, { static: false }) sort: MatSort;
+
 
   applicantName = "";
   appAddress = "";
@@ -47,10 +56,11 @@ export class StreetComponent implements OnInit {
   cus_id;
   ass_id;
 
+  xx = false;
 
   //orCus;
 
-  constructor(private http: HttpClient, ) {
+  constructor(private http: HttpClient, private router: Router) {
     this.mg = new allert.Globle();
   }
 
@@ -69,7 +79,7 @@ export class StreetComponent implements OnInit {
     console.log(this.onuser[0]);
     console.log(this.onuser[0].nic);
     this.serchcustable();
-    //this.getslrefno();
+    this.getcergrid();
   }
 
   serchcustable() {
@@ -97,10 +107,14 @@ export class StreetComponent implements OnInit {
         this.landsize = res[0].LandSize;
         this.osl_id = res[0].idStreetLine;
         this.getstreetlineolddetails();
-
+        this.xx = true;
       },
-      err => { console.log(err); }
+      err => { console.log(err);
+        this.xx = false;
+        this.mg.message('warning', 'Empty Data Please Contact Chilaw Urban Council');
+      }
       //this.mg.message('success', 'Complain saved');
+      
     );
 
   };
@@ -177,7 +191,7 @@ export class StreetComponent implements OnInit {
 
 
         //this.save();
-          this.dhasave();
+        this.dhasave();
 
       },
       err => { console.log(err); }
@@ -187,9 +201,9 @@ export class StreetComponent implements OnInit {
 
   save() {
     console.log('saved');
-  //  this.getslrefno();
-  //  this.getslrefnoid();
-  
+    //  this.getslrefno();
+    //  this.getslrefnoid();
+
     let obb = {
       idStreetLine: this.maxslid,
       ass_id: this.ass_id, slPlanNo: this.planno,
@@ -225,16 +239,32 @@ export class StreetComponent implements OnInit {
 
   dhasave() {
     console.log('saved');
-  
+
     let obb1 = {
       doc_hand_subject_id: this.maxslid
     };
     console.log(obb1);
     this.http.post(this.sline + 'savedha', obb1).subscribe(res => {
-    this.save();
-     
+      this.save();
+
     });
 
+  }
+
+  getcergrid() {
+    this.http.post<any>(this.sline + 'getcer', { oncusid: this.onuser[0].idOnline }).subscribe(res => {
+      console.log(res);
+      this.dataSource = new MatTableDataSource(res);
+      //this.dataSource.paginator = this.paginator;
+      //this.dataSource.sort = this.sort;
+    });
+  }
+
+  getcertificate() {
+    console.log('view');
+    //Response.redirect('http://localhost/certificate/');
+    //this.doc.location.href('http://localhost/certificate/');
+    window.location.href = "http://localhost/certificate/";
   }
 
 }

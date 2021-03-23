@@ -2,7 +2,7 @@
 
 
     <mat-tab-group mat-align-tabs="left">
-        <mat-tab label="Application"> 
+        <mat-tab label="Application">
             <br>
             <mat-card class="example-card" class="col-md-12">
                 <mat-card-header>
@@ -20,8 +20,8 @@
                     </mat-form-field>
                     <br>
                     <mat-form-field class="col-md-12">
-                        <input matInput type="text" [readonly]="true" id="owneradd" name="owneraddress" required placeholder="සහතික හිමිකරුගේ ලිපිනය (Certificate Owner Address)"
-                            [(ngModel)]="appAddress" />
+                        <input matInput type="text" [readonly]="true" id="owneradd" name="owneraddress" required
+                            placeholder="සහතික හිමිකරුගේ ලිපිනය (Certificate Owner Address)" [(ngModel)]="appAddress" />
                     </mat-form-field>
                     <br>
                     <mat-form-field class="col-md-12">
@@ -30,8 +30,8 @@
                     </mat-form-field>
                     <br>
                     <mat-form-field class="col-md-12">
-                        <input matInput type="text" [readonly]="true" id="plandate" name="plandate" required placeholder="සැලසුම් දිනය (Plan Date)"
-                            [(ngModel)]="plandate" />
+                        <input matInput type="text" [readonly]="true" id="plandate" name="plandate" required
+                            placeholder="සැලසුම් දිනය (Plan Date)" [(ngModel)]="plandate" />
                     </mat-form-field>
                     <br>
                     <mat-form-field class="col-md-12">
@@ -40,13 +40,13 @@
                     </mat-form-field>
                     <br>
                     <mat-form-field class="col-md-12">
-                        <input matInput type="text" [readonly]="true" id="surveyname" name="surveyname" required placeholder="මිනින්දෝරු නම (Surveyor Name)"
-                            [(ngModel)]="surveyname" />
+                        <input matInput type="text" [readonly]="true" id="surveyname" name="surveyname" required
+                            placeholder="මිනින්දෝරු නම (Surveyor Name)" [(ngModel)]="surveyname" />
                     </mat-form-field>
                     <br>
                     <mat-form-field class="col-md-12">
-                        <input matInput type="text" [readonly]="true" id="landsize" name="landsize" required placeholder="ඉඩමේ ප්‍රමාණය(Land Size)"
-                            [(ngModel)]="landsize" />
+                        <input matInput type="text" [readonly]="true" id="landsize" name="landsize" required
+                            placeholder="ඉඩමේ ප්‍රමාණය(Land Size)" [(ngModel)]="landsize" />
                     </mat-form-field>
                     <br>
                     <mat-form-field class="col-md-12">
@@ -67,19 +67,15 @@
             </mat-card>
 
             <br />
-            <img src="http://124.43.8.250:3032/sl_images/Street_line/100/Deed1.jpg"
-                width="150px" height="200px">&nbsp;&nbsp;
-            <img src="http://124.43.8.250:3032/sl_images/Street_line/100/Deed2.jpg"
-                width="150px" height="200px">&nbsp;&nbsp;
-            <img src="http://124.43.8.250:3032/sl_images/Street_line/100/Deed3.jpg"
-                width="150px" height="200px">&nbsp;&nbsp;
-            <img src="http://124.43.8.250:3032/sl_images/Street_line/100/Deed4.jpg"
-                width="150px" height="200px">&nbsp;&nbsp;
-            <img src="http://124.43.8.250:3032/sl_images/Street_line/100/Plan.jpg"
-                width="150px" height="200px">&nbsp;&nbsp;
-
-                <br>
-                <br>
+            <div *ngIf="xx">
+                <img src="http://124.43.8.250:3032/sl_images/Street_line/100/Deed1.jpg" width="150px" height="200px">&nbsp;&nbsp;
+                <img src="http://124.43.8.250:3032/sl_images/Street_line/100/Deed2.jpg" width="150px" height="200px">&nbsp;&nbsp;
+                <img src="http://124.43.8.250:3032/sl_images/Street_line/100/Deed3.jpg" width="150px" height="200px">&nbsp;&nbsp;
+                <img src="http://124.43.8.250:3032/sl_images/Street_line/100/Deed4.jpg" width="150px" height="200px">&nbsp;&nbsp;
+                <img src="http://124.43.8.250:3032/sl_images/Street_line/100/Plan.jpg" width="150px" height="200px">&nbsp;&nbsp;
+            </div>
+            <br>
+            <br>
             <!-- <mat-card>
 
         <div>
@@ -103,11 +99,69 @@
 
         </mat-tab>
         <mat-tab label="Certificate">
-            Print Certificate
-        
-        
-        
-        
+            <mat-card class="example-card" class="col-md-12">
+                <mat-card-header>
+                    <mat-card-title>Youre Street Line Certificates</mat-card-title>
+                    <!-- <mat-card-subtitle>Select Youre 
+                    </mat-card-subtitle> -->
+                </mat-card-header>
+                <mat-card-content>
+                </mat-card-content>
+            </mat-card>
+
+            <div class="col-md-12">
+                <div class="mat-elevation-z8">
+                    <mat-table matSort [dataSource]="dataSource">
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="slDate">
+                            <mat-header-cell mat-sort-header *matHeaderCellDef> Date </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.slDate | date:'yyyy / MM / dd'}} </mat-cell>
+                        </ng-container>
+
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="cus_name_sinhala">
+                            <mat-header-cell mat-sort-header *matHeaderCellDef> Owner Name </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.cus_name_sinhala}} </mat-cell>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="sl_reference_no">
+                            <mat-header-cell mat-sort-header *matHeaderCellDef> Reference No </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.sl_reference_no}} </mat-cell>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="cus_mobile">
+                            <mat-header-cell mat-sort-header *matHeaderCellDef> Owner Mobile </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.cus_mobile}} </mat-cell>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <!-- <ng-container matColumnDef="statuss">
+                      <mat-header-cell mat-sort-header *matHeaderCellDef> Status </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.statuss}} </mat-cell>
+                    </ng-container> -->
+
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="idStreetLine">
+                            <mat-header-cell mat-sort-header *matHeaderCellDef>More Info</mat-header-cell>
+                            <mat-cell *matCellDef="let element">
+                                <button mat-raised-button value="{{element.idStreetLine}}" (click)="getcertificate()">
+                                    Print
+                                </button></mat-cell>
+                        </ng-container>
+
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                    </mat-table>
+                    <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons></mat-paginator>
+                </div>
+            </div>
+
+
+
         </mat-tab>
         <!-- <mat-tab label="Third">Content 3</mat-tab> -->
     </mat-tab-group>
