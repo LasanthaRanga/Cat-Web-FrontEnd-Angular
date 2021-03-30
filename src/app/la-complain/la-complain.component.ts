@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LaComplainComponent implements OnInit {
 
-  displayedColumns: string[] = ['online_complain_name', 'online_complain_tell_no', 'online_complains', 'online_complain_date', 'statuss'];
+  displayedColumns: string[] = ['fullname', 'mobile', 'online_complains', 'online_complain_date', 'statuss'];
   dataSource = <any>[];
   urlVehicle = statics.ip + 'complains/';
 

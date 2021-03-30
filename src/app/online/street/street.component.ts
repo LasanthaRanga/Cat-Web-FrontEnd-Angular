@@ -85,11 +85,28 @@ export class StreetComponent implements OnInit {
   serchcustable() {
     this.http.post(this.sline + 'ss', { nic: this.onuser[0].nic }).subscribe(
       res => {
+        console.log('-------------------------------------------------------');
         console.log(res);
-        this.getstreetlinetable(res[0].idCustomer);
+        console.log('-------------------------------------------------------');
+
+        if (res[0]) //if a is negative,undefined,null,empty value then...
+        {
+          this.cus_id = res[0].idCustomer;
+          this.getstreetlinetable(res[0].idCustomer);
+        }
+        else {
+          this.mg.message('warning', 'Empty Data Please Contact Chilaw Urban Council');
+
+        }
+
+        //this.getstreetlinetable(res[0].idCustomer);
 
       },
-      err => { console.log(err); }
+      err => {
+        console.log(err);
+        console.log('000000');
+        this.mg.message('warning', 'Empty Data Please Contact Chilaw Urban Council');
+      }
     );
 
   };
@@ -109,12 +126,14 @@ export class StreetComponent implements OnInit {
         this.getstreetlineolddetails();
         this.xx = true;
       },
-      err => { console.log(err);
+      err => {
+        console.log(err);
         this.xx = false;
+        console.log('1');
         this.mg.message('warning', 'Empty Data Please Contact Chilaw Urban Council');
+        console.log('2');
       }
-      //this.mg.message('success', 'Complain saved');
-      
+
     );
 
   };
@@ -142,7 +161,6 @@ export class StreetComponent implements OnInit {
 
       },
       err => { console.log(err); }
-      //this.mg.message('success', 'Complain saved');
     );
 
   };
@@ -176,7 +194,6 @@ export class StreetComponent implements OnInit {
 
       },
       err => { console.log(err); }
-      //this.mg.message('success', 'Complain saved');
     );
 
   };
@@ -195,7 +212,6 @@ export class StreetComponent implements OnInit {
 
       },
       err => { console.log(err); }
-      //this.mg.message('success', 'Complain saved');
     );
   };
 
@@ -204,10 +220,13 @@ export class StreetComponent implements OnInit {
     //  this.getslrefno();
     //  this.getslrefnoid();
 
+    let desc_23 = "Required lot no - " + this.lotno;
     let obb = {
       idStreetLine: this.maxslid,
-      ass_id: this.ass_id, slPlanNo: this.planno,
-      slDescription: this.lotno,
+      ass_id: this.ass_id,
+      slPlanNo: this.planno,
+      //slDescription: this.lotno,
+      slDescription: desc_23,
       slServayOfficer: this.surveyname,
       slServayDate: this.plandate,
       customer_idCustomer: this.cus_id,

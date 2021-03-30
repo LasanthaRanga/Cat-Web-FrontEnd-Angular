@@ -14,6 +14,7 @@ export class ComplainComponent implements OnInit {
   cusname;
   mobno;
   compla;
+  onuser;
 
   mg: allert.Globle;
 
@@ -22,6 +23,15 @@ export class ComplainComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.onuser = JSON.parse(sessionStorage.getItem('loged'));
+
+    console.log(this.onuser);
+    console.log(this.onuser[0]);
+    console.log(this.onuser[0].nic);
+    console.log(this.onuser[0].idOnline);
+
+
   }
 
   savecomplain(){
@@ -32,7 +42,8 @@ export class ComplainComponent implements OnInit {
     //   this.mg.message('warning', 'Fill Empty Fields');
     // }
 
-    this.http.post(this.complains + 'savecomplain', {online_complain_name:this.cusname,online_complain_tell_no:this.mobno,online_complains:this.compla}).subscribe(res => {
+    //this.http.post(this.complains + 'savecomplain', {online_complain_name:this.cusname,online_complain_tell_no:this.mobno,online_complains:this.compla}).subscribe(res => {
+      this.http.post(this.complains + 'savecomplain', {online_complains:this.compla,online_cus_id:this.onuser[0].idOnline}).subscribe(res => {
       this.mg.message('success', 'Complain saved');
       console.log('----------');
       this.cusname='';
