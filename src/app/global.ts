@@ -1,4 +1,4 @@
-export const ip = 'http://localhost:3001/online/';
+//export const ip = 'http://localhost:3001/online/';
 // export const ip = 'https://www.chilawucapi.cat2020.org/online/';
 // export const ip = 'http://124.43.23.214/online/'; // pujapitiya?
  //export const ip = 'http://124.43.8.250/online/'; // chilaw
@@ -22,4 +22,4 @@ export const ip = 'http://localhost:3001/online/';
 // export const ip = 'http://192.168.1.6:3001/online/';  // Karuwalagaswewa
 
 // export const ip = 'https://www.kurunegalamcapi.cat2020.org/online/';  // Kurunegala Online 
-//export const ip = 'https://www.chilawucapi.cat2020.org/online/';  // Chilaw Online
+export const ip = 'https://www.chilawucapi.cat2020.org/online/';  // Chilaw Online
