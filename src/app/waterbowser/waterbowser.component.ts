@@ -23,6 +23,8 @@ export class WaterbowserComponent implements OnInit {
   morereason;
   moredistance;
   moretime;
+  moresttime;
+  moreendtime;
 
   amount;
 
@@ -52,6 +54,8 @@ export class WaterbowserComponent implements OnInit {
       this.morereason=res[0].wb_reason;
       this.moredistance=res[0].wb_distance_with_town;
       this.moretime=res[0].wb_time_diuration;
+      this.moresttime=res[0].wb_start_date;
+      this.moreendtime=res[0].wb_end_date;
       this.condition=true;
       localStorage.setItem('w_detailid', JSON.stringify(ids));
       localStorage.setItem('g_cus_id', JSON.stringify(res[0].wb_cus_id));

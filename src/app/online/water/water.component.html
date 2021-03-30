@@ -9,25 +9,35 @@
                     <mat-card-content>
                         <table class="table table-hover">
                             <thead class="text-warning">
-                                <th>සේවා ස්ථානයේ ස්වභාවය </th>
-                                <th>නගරසීමාව තුල </th>
-                                <th>නගරසීමාවෙන් පිටත </th>
-                                <th>නගරසීමාවෙන් පිටත කි.මී. 1 කට යාමට සහ ඒමට </th>
+                                <th>ජල බවුසර් වර්ගය </th>
+                                <th>නගර සීමාව තුල ගාස්තු </th>
+                                <th>නගර සීමාවෙන් පිටත </th>
+                                <th>බවුසරය තබාගැනීමේ ගාස්තු </th>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><label>නිවාස</label> </td>
-                                    <td><label>2500.00</label> </td>
-                                    <td><label>6500.00</label> </td>
-                                    <td><label>100.00</label> </td>
+                                    <td><label>4000 L</label> </td>
+                                    <td><label>1200</label> </td>
+                                    <td><label>කි.මී. 1 ක් සඳහා රු 100</label> </td>
+                                    <td>
+                                        <p>පැය 12 සඳහා රු 500
+                                            පැය 24 සඳහා රු 1000
+                                            පැය 24 ට වඩා වැඩිවන සෑම පැය 12 කටම රු 1000
+                                        </p>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td><label>ව්‍යාපාරික ස්ථාන </label> </td>
-                                    <td><label>6000.00</label> </td>
-                                    <td><label>7000.00</label> </td>
-                                    <td><label>100.00</label> </td>
+                                    <td><label>6000 L</label> </td>
+                                    <td><label>2000</label> </td>
+                                    <td><label>කි.මී. 1 ක් සඳහා රු 100</label> </td>
+                                    <td>
+                                        <p>පැය 12 සඳහා රු 500
+                                            පැය 24 සඳහා රු 1000
+                                            පැය 24 ට වඩා වැඩිවන සෑම පැය 12 කටම රු 1000
+                                        </p>
+                                    </td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <td><label>රාජ්‍ය ආයතන </label> </td>
                                     <td><label>6000.00</label> </td>
                                     <td><label>7000.00</label> </td>
@@ -38,15 +48,38 @@
                                     <td><label>500.00</label> </td>
                                     <td><label>500.00</label> </td>
                                     <td><label>100.00</label> </td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
                     </mat-card-content>
+                    <mat-card-footer>
+                        <div class="row">
+                            <div class="col-md-12">1. ජල බවුසර් ලබාගැනීමේදී ඔබට ලබාගත හැක්කේ ජලය රහිත බවුසරයක් පමණි
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">2. 6000L ජල බවුසරය තබාගැනීමේ හැකියාවක් නැති අතර 4000L ජල බවුසරය තබාගත
+                                හැකිය.</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">3. 6000L ජල බවුසරය සඳහා පමණක් ජල පොම්පයක් සවිකර ඇත.</div>
+                        </div>
+                    </mat-card-footer>
                 </mat-card>
                 <mat-card>
                     <mat-card-title>
-                        ගලි බවුසරය අයඳුම් කිරීම </mat-card-title>
+                        ජල බවුසරය අයඳුම් කිරීම </mat-card-title>
                     <hr>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div *ngIf="type == '1'">
+                                <img class="imgs" src="http://localhost/img/1.jpeg">&nbsp;&nbsp;
+                            </div>
+                            <div *ngIf="type == '2'">
+                                <img class="imgs" src="http://localhost/img/2.jpeg">&nbsp;&nbsp;
+                            </div>
+                        </div>
+                    </div>
                     <mat-form-field class="col-md-4">
                         <mat-label>ජල බවුසර් වර්ගය</mat-label>
                         <mat-select required [(ngModel)]="type">
@@ -55,12 +88,12 @@
                         </mat-select>
                     </mat-form-field>
 
-                    <mat-form-field class="col-lg-8 col-md-12">
+                    <!-- <mat-form-field class="col-lg-8 col-md-12">
                         <mat-label>සේවාව අවශ්‍ය දිනය</mat-label>
                         <input matInput [matDatepicker]="picker" [(ngModel)]="date">
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
-                    </mat-form-field>
+                    </mat-form-field> -->
 
                     <mat-form-field class="col-md-4">
                         <input required [(ngModel)]="adress" matInput type="text"
@@ -71,21 +104,28 @@
                         <input required [(ngModel)]="reason" matInput type="text"
                             placeholder="ජල බව්සරය අවශ්‍ය කාරණාව " />
                     </mat-form-field>
-
+                    <br>
                     <mat-radio-group [(ngModel)]="rad" aria-label="" class="col-md-4"
                         title="නගර සභා සීමාව තුල හෝ පිටතද යන වග ">
-                        <mat-radio-button value="1">ඇත</mat-radio-button>
-                        <mat-radio-button value="2">නැත</mat-radio-button>
+                        <label>නගර සභා සීමාව තුල</label>
+                        <mat-radio-button value="1" title="නගර සභා සීමාව තුල " (click)="falses()"></mat-radio-button>
+                        <label>නගර සභා සීමාව පිටතද</label>
+                        <mat-radio-button value="2" title="නගර සභා සීමාව  පිටත" (click)="trues()"></mat-radio-button>
                     </mat-radio-group>
 
-                    <mat-form-field class="col-md-4">
+                    <mat-form-field class="col-md-4" *ngIf="visible" >
                         <input required [(ngModel)]="distance" matInput type="text"
                             placeholder="නගර සභා සීමාවෙන් පිටත නම් නගරයේ සිට ඇති දුර කි.මී" />
                     </mat-form-field>
 
                     <mat-form-field class="col-md-4">
-                        <input required [(ngModel)]="time" matInput type="text"
-                            placeholder="ජල බවුසරය තබාගැනීමට අවශ්‍ය කාලය පැය " />
+                        <label>ජල බවුසරය අවශ්‍ය වෙලාව</label>
+                        <input required [(ngModel)]="sttime" matInput type="datetime-local" placeholder="start date">
+                    </mat-form-field>
+
+                    <mat-form-field class="col-md-4">
+                        <label>ජල බවුසරය කාරිය අවසන් වන වෙලාව</label>
+                        <input required [(ngModel)]="endtime" matInput type="datetime-local" placeholder="start date">
                     </mat-form-field>
 
                     <mat-card-actions align="end">
@@ -111,16 +151,17 @@
                             <tbody>
                                 <tr *ngFor="let item of userpending_list;">
                                     <td><label>{{item.wb_detail_id}}</label> </td>
-                                    <td ><label>{{item.wb_date}}</label> </td>
+                                    <td><label>{{item.wb_date}}</label> </td>
                                     <td><label>{{item.wb_location}}</label> </td>
-                                    <td ><label>{{item.wb_type_name}}</label> </td>
-                                    <td ><span class="material-icons" (click)="moreby_id(item.wb_detail_id)">read_more</span> </td>
+                                    <td><label>{{item.wb_type_name}}</label> </td>
+                                    <td><span class="material-icons"
+                                            (click)="moreby_id(item.wb_detail_id)">read_more</span> </td>
                                 </tr>
                             </tbody>
                         </table>
                         <br>
                         <hr>
-                        <div  *ngIf="condition">
+                        <div *ngIf="condition">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="row">
@@ -214,7 +255,29 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>ජල බවුසරය අවශ්‍ය වෙලාව</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            {{moresttime}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>ජල බවුසරය කාරිය අවසන් වන වෙලාව</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            {{moreendtime}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
                     </mat-card-content>

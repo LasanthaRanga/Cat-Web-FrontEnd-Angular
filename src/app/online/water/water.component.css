@@ -1,0 +1,20 @@
+.imgs{
+    width: auto;
+    height: 200px;
+
+}
+
+ion-icon {
+    cursor: pointer;
+  }
+ion-icon:hover {
+    cursor: pointer;
+}
+
+.material-icons{
+    cursor: pointer !important;
+}
+
+.material-icons:hover {
+    cursor: pointer;
+}

@@ -1,3 +1,18 @@
 .mat-radio-button ~ .mat-radio-button {
     margin-left: 16px;
   }
+
+  ion-icon {
+    cursor: pointer;
+  }
+ion-icon:hover {
+    cursor: pointer;
+}
+
+.material-icons{
+    cursor: pointer !important;
+}
+
+.material-icons:hover {
+    cursor: pointer;
+}

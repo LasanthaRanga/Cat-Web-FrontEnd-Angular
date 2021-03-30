@@ -20,6 +20,7 @@ export class GullyComponent implements OnInit {
   litown;
   liprogress;
   cusid;
+  lidistance;
 
   condition: boolean = false;
 
@@ -49,6 +50,7 @@ export class GullyComponent implements OnInit {
     this.litown=res[0].tname;
     this.liprogress=res[0].name;
     this.cusid=res[0].g_cus_id;
+    this.lidistance=res[0].g_distance;
     this.condition=true;
     localStorage.setItem('detailid', JSON.stringify(id));
     localStorage.setItem('g_cus_id', JSON.stringify(this.cusid));

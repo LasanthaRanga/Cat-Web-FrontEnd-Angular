@@ -29,8 +29,11 @@ export class OngullyComponent implements OnInit {
   lidate;
   litown;
   liprogress;
+  lidistance;
+
 
   condition: boolean = false;
+  visible: boolean = true;
 
   constructor(private http: HttpClient) {
     this.mg = new allert.Globle();
@@ -82,8 +85,19 @@ export class OngullyComponent implements OnInit {
     this.lidate=res[0].g_date;
     this.litown=res[0].tname;
     this.liprogress=res[0].name;
+    this.lidistance=res[0].g_distance;
     this.condition=true;
     });
+  }
+
+  trues(){
+    this.visible=true;
+
+  }
+
+  falese(){
+    this.visible=false;
+    this.distanceintown='0'
   }
 
 }

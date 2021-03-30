@@ -14,6 +14,7 @@ export class WaterComponent implements OnInit {
   mg: allert.Globle;
   waterbowser = statics.ip + 'waterbowser/';
   condition: boolean = false;
+  visible:boolean=true;
 
   userId;
 
@@ -25,6 +26,8 @@ export class WaterComponent implements OnInit {
   distance;
   time;
   rad;
+  sttime;
+  endtime;
 
   userpending_list;
 
@@ -35,6 +38,8 @@ export class WaterComponent implements OnInit {
   morereason;
   moredistance;
   moretime;
+  moresttime;
+  moreendtime;
 
   constructor(private http: HttpClient) {
     this.mg = new allert.Globle();
@@ -51,7 +56,7 @@ export class WaterComponent implements OnInit {
   saveBasic() {
     const pipe = new DatePipe('en-US');
     this.date = pipe.transform(this.date, 'yyyy/MM/dd');
-    this.http.post(this.waterbowser + 'savegdetails', { wb_type_id: this.type, wb_date: this.date, wb_location: this.adress, wb_reason: this.reason, wb_distance_with_town: this.distance, wb_time_diuration: this.time,wb_town_or_not:this.rad,cusid:this.userId }).subscribe(res => {
+    this.http.post(this.waterbowser + 'savegdetails', { wb_type_id: this.type, wb_location: this.adress, wb_reason: this.reason, wb_distance_with_town: this.distance, wb_time_diuration: '1',wb_town_or_not:this.rad,cusid:this.userId,wb_start_date:this.sttime,wb_end_date:this.endtime }).subscribe(res => {
       this.mg.message('success', 'success your request');
       this.type='';
       this.date='';
@@ -60,7 +65,10 @@ export class WaterComponent implements OnInit {
       this.distance='';
       this.time='';
       this.rad='';
+      this.sttime='';
+      this.endtime='';
       console.log(res);
+      this.getuserpending();
     });
 
   }
@@ -91,9 +99,20 @@ export class WaterComponent implements OnInit {
       this.morereason=res[0].wb_reason;
       this.moredistance=res[0].wb_distance_with_town;
       this.moretime=res[0].wb_time_diuration;
+      this.moresttime=res[0].wb_start_date;
+      this.moreendtime=res[0].wb_end_date;
       this.condition=true;
       console.log(res);
     });
+  }
+
+  trues(){
+    this.visible=true;
+  }
+
+  falses(){
+    this.visible=false;
+    this.distance='0';
   }
 
 }

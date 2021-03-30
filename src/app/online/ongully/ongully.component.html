@@ -1,10 +1,10 @@
 <div class="container">
     <div class="col-md-12">
         <mat-tab-group>
-            <mat-tab label="අයදුම්පත් "> 
+            <mat-tab label="අයදුම්පත් ">
                 <mat-card>
                     <mat-card-title>
-                        ස්ථානය හා ස්වභාවය අනුව සේවාව සදහා අයකිරිම් 
+                        ස්ථානය හා ස්වභාවය අනුව සේවාව සදහා අයකිරිම්
                     </mat-card-title>
                     <mat-card-content>
                         <table class="table table-hover">
@@ -17,9 +17,9 @@
                             <tbody>
                                 <tr>
                                     <td><label>නිවාස</label> </td>
-                                    <td ><label>2500.00</label> </td>
+                                    <td><label>2500.00</label> </td>
                                     <td><label>6500.00</label> </td>
-                                    <td ><label>100.00</label> </td>
+                                    <td><label>100.00</label> </td>
                                 </tr>
                                 <tr>
                                     <td><label>ව්‍යාපාරික ස්ථාන </label> </td>
@@ -28,13 +28,13 @@
                                     <td><label>100.00</label> </td>
                                 </tr>
                                 <tr>
-                                    <td><label>රාජ්‍ය ආයතන  </label> </td>
+                                    <td><label>රාජ්‍ය ආයතන </label> </td>
                                     <td><label>6000.00</label> </td>
                                     <td><label>7000.00</label> </td>
                                     <td><label>100.00</label> </td>
                                 </tr>
                                 <tr>
-                                    <td><label>පුජනීය ස්ථාන   </label> </td>
+                                    <td><label>පුජනීය ස්ථාන </label> </td>
                                     <td><label>500.00</label> </td>
                                     <td><label>500.00</label> </td>
                                     <td><label>100.00</label> </td>
@@ -49,26 +49,21 @@
                     <!-- <mat-card-subtitle>Fill details</mat-card-subtitle> -->
                     <hr>
                     <mat-card-content>
-        
-                       <!-- <mat-form-field class="col-md-4">
-                            <input required [(ngModel)]="applicantname" matInput type="text" placeholder="අයඳුම්කරුගේ නම" />
-                        </mat-form-field>-->
-        
+
                         <mat-form-field class="col-md-4">
                             <input required [(ngModel)]="mobile" matInput type="text" placeholder="දුරකථන අංකය" />
                         </mat-form-field>
-        
-                        <mat-form-field class="col-md-4">
+
+                        <!-- <mat-form-field class="col-md-4">
                             <input required [(ngModel)]="nic" matInput type="text" placeholder="ජා.හැ.අංකය " />
-                        </mat-form-field>
-        
+                        </mat-form-field> -->
+
                         <mat-form-field class="col-md-4">
-                            <input required [(ngModel)]="adress" matInput type="text" placeholder="සේවය අවශ්‍යවන ස්ථානයේ ලිපිනය" />
+                            <input required [(ngModel)]="adress" matInput type="text"
+                                placeholder="සේවය අවශ්‍යවන ස්ථානයේ ලිපිනය" />
                         </mat-form-field>
-        
-                       <!-- <mat-form-field class="col-md-4">
-                            <input required [(ngModel)]="nature" matInput type="text" placeholder="අදාල ස්ථානයේ ස්වභාවය" />
-                        </mat-form-field>-->
+
+                        
 
                         <mat-form-field class="col-md-4">
                             <mat-label>අදාල ස්ථානයේ ස්වභාවය</mat-label>
@@ -77,56 +72,62 @@
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
-        
-                       <!-- <mat-form-field class="col-md-4">
-                            <input required [(ngModel)]="registrationNo" matInput type="text" placeholder="පිහිටීම නගරසීමාව තුල /පිටත" />
-                        </mat-form-field>-->
-        
+
+                        
+
                         <mat-radio-group aria-label="" class="col-md-4" title="පිහිටීම නගරසීමාව තුල /පිටත">
-                            <mat-radio-button value="1" >තුල</mat-radio-button>
-                            <mat-radio-button value="2">පිටත</mat-radio-button>
-                          </mat-radio-group>
-        
-                        <mat-form-field class="col-md-4">
-                            <input required [(ngModel)]="distanceintown" matInput type="text" placeholder="නගරසීමා බල ප්‍රදේශයෙන් පිට නම් දුර ප්‍රමාණය " />
+                            <label>නගර සභා සීමාව තුල</label>
+                            <mat-radio-button value="1" (click)="falese()"></mat-radio-button>
+                            <label>නගර සභා සීමාව පිටතද</label>
+                            <mat-radio-button value="2" (click)="trues()"></mat-radio-button>
+                        </mat-radio-group>
+
+                        <mat-form-field class="col-md-4" *ngIf="visible">
+                            <input required [(ngModel)]="distanceintown" matInput type="text"
+                                placeholder="නගරසීමා බල ප්‍රදේශයෙන් පිට නම් දුර ප්‍රමාණය (km) " />
                         </mat-form-field>
-        
+
                         <!--<mat-form-field class="col-md-4">
                             <input required [(ngModel)]="registrationNo" matInput type="text" placeholder="බවුසරය ගෙනයාමට තරම් පහසුකම් තිබේද යන්න " />
                         </mat-form-field>-->
-        
+
                         <mat-radio-group aria-label="" class="col-md-4" title="බවුසරය ගෙනයාමට තරම් පහසුකම් තිබේද යන්න">
-                            <mat-radio-button value="1" >ඇත</mat-radio-button>
-                            <mat-radio-button value="2">නැත</mat-radio-button>
-                          </mat-radio-group>
-        
-        
+                            <label>බවුසරය ගෙනයාමට තරම් පහසුකම් ඇත</label>
+                            <mat-radio-button value="1"></mat-radio-button>
+                            <label>බවුසරය ගෙනයාමට තරම් පහසුකම් නැත</label>
+                            <mat-radio-button value="2"></mat-radio-button>
+                        </mat-radio-group>
+
+
                         <mat-form-field class="col-md-4">
-                            <input required [(ngModel)]="distanceintank" matInput type="text" placeholder="බවුසරය නතර කරන ස්ථානයේ සිට වැසිකිළි වලට ඇති දුර " />
+                            <input required [(ngModel)]="distanceintank" matInput type="text"
+                                placeholder="බවුසරය නතර කරන ස්ථානයේ සිට වැසිකිළි වලට ඇති දුර (m)" />
                         </mat-form-field>
-        
+
                         <mat-form-field class="col-md-4">
-                            <input required required matInput type="text" placeholder="ඉල්ලුම්කරුගේ විද්‍යුත් ලිපිනය " [(ngModel)]="email" />
+                            <input required required matInput type="text" placeholder="ඉල්ලුම්කරුගේ විද්‍යුත් ලිපිනය "
+                                [(ngModel)]="email" />
                         </mat-form-field>
-        
-        
+
+
                         <mat-card-actions align="end">
-                            <button class="block" mat-raised-button color="primary" type="submit" (click)="saveBasic()">Save
+                            <button class="block" mat-raised-button color="primary" type="submit"
+                                (click)="saveBasic()">Save
                                 Data</button>
                         </mat-card-actions>
                     </mat-card-content>
                 </mat-card>
             </mat-tab>
-            <mat-tab label="අසම්පුර්ණ අයදුම්පත් "> 
+            <mat-tab label="අසම්පුර්ණ අයදුම්පත් ">
                 <mat-card>
                     <mat-card-title>
-                       <!-- ස්ථානය හා ස්වභාවය අනුව සේවාව සදහා අයකිරිම් -->
+                        <!-- ස්ථානය හා ස්වභාවය අනුව සේවාව සදහා අයකිරිම් -->
                     </mat-card-title>
                     <mat-card-content>
                         <table class="table table-hover">
                             <thead class="text-warning">
                                 <th>ඉල්ලුම්පත් අංකය</th>
-                                <th>දිනය  </th>
+                                <th>දිනය </th>
                                 <th>සේවාව ලබාගන්නා ස්ථානය</th>
                                 <th>ස්ථානයේ ස්වභාවය </th>
                                 <th>more</th>
@@ -134,17 +135,18 @@
                             <tbody>
                                 <tr *ngFor="let item of list;">
                                     <td><label>{{item.g_detail_id}}</label> </td>
-                                    <td ><label>{{item.g_date}}</label> </td>
+                                    <td><label>{{item.g_date}}</label> </td>
                                     <td><label>{{item.g_address}}</label> </td>
-                                    <td ><label>{{item.g_nature}}</label> </td>
-                                    <td ><span class="material-icons" (click)="moreinfo(item.g_detail_id)">read_more</span> </td>
+                                    <td><label>{{item.g_nature}}</label> </td>
+                                    <td><span class="material-icons"
+                                            (click)="moreinfo(item.g_detail_id)">read_more</span> </td>
                                 </tr>
                             </tbody>
                         </table>
                         <br>
                         <hr>
 
-                        <div  *ngIf="condition">
+                        <div *ngIf="condition">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="row">
@@ -167,7 +169,7 @@
                                     </div>
                                 </div>
                             </div>
-    
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="row">
@@ -190,7 +192,7 @@
                                     </div>
                                 </div>
                             </div>
-    
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="row">
@@ -202,12 +204,24 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>නගරසීමා බල ප්‍රදේශයෙන් පිට නම් දුර ප්‍රමාණය (km)</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>{{lidistance}}</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
+                        
+                            
                     </mat-card-content>
                 </mat-card>
             </mat-tab>
-          </mat-tab-group>
+        </mat-tab-group>
     </div>
 </div>

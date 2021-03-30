@@ -283,7 +283,8 @@ export class StreetComponent implements OnInit {
     console.log('view');
     //Response.redirect('http://localhost/certificate/');
     //this.doc.location.href('http://localhost/certificate/');
-    window.location.href = "http://localhost/certificate/";
+    //window.location.href = "http://localhost/certificate/";
+    window.location.href = "http://124.43.8.250:3032/sl_images/invoice/index.html";
   }
 
 }

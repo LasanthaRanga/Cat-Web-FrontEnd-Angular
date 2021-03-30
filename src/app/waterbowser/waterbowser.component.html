@@ -122,6 +122,29 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>ජල බවුසරය අවශ්‍ය වෙලාව</label>
+                                </div>
+                                <div class="col-md-6">
+                                    {{moresttime}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>ජල බවුසරය කාරිය අවසන් වන වෙලාව</label>
+                                </div>
+                                <div class="col-md-6">
+                                    {{moreendtime}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <hr>
 
                     <div class="row">
@@ -130,24 +153,24 @@
                                 placeholder="ඉහත සේවාව සදහා ගාස්තු (රුපියල් )" />
                         </mat-form-field>
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                         <mat-form-field class="col-md-4">
                             <input required [(ngModel)]="amountdi" matInput type="text"
                                 placeholder="දුර අනුව ගාස්තුව" />
                         </mat-form-field>
-                    </div>
-                    <div class="row">
+                    </div> -->
+                    <!-- <div class="row">
                         <mat-form-field class="col-md-4">
                             <input required [(ngModel)]="amountday" matInput type="text"
                                 placeholder="දින අනුව ගාස්තුව " />
                         </mat-form-field>
-                    </div>
-                    <div class="row">
+                    </div> -->
+                    <!-- <div class="row">
                         <mat-form-field class="col-md-4">
                             <input required [(ngModel)]="amounttot" matInput type="text"
                                 placeholder="එකතුව" />
                         </mat-form-field>
-                    </div>
+                    </div> -->
 
                     <mat-card-actions align="end">
                         <button class="block" mat-raised-button color="primary" type="submit" (click)="addamount()">Save
