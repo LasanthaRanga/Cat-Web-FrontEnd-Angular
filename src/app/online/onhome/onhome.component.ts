@@ -17,7 +17,7 @@ export class OnhomeComponent implements OnInit {
 
   name;
   dataSource = <any>[];
-  displayedColumns: string[] = ['application_name', 'owner_name', 'status'];
+  displayedColumns: string[] = ['owner_name', 'status'];
 
   url = statics.ip;
   fullname = '';
@@ -27,7 +27,7 @@ export class OnhomeComponent implements OnInit {
   cusid = 0;
   kformid;
 
- 
+
 
   ngOnInit() {
 
