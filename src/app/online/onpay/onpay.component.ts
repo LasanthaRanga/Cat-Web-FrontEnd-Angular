@@ -25,6 +25,7 @@ export class OnpayComponent implements OnInit {
   total;
   applicatyion_id;
   application_cat;
+  app_cat_name;
 
   cus_name;
 
@@ -58,6 +59,7 @@ export class OnpayComponent implements OnInit {
       this.payment = res[0].online_pay_amount;
       this.applicatyion_id = res[0].online_pay_application_id;
       this.application_cat= res[0].onlin_pay_app_cat;
+      this.app_cat_name=res[0].sh_name;
       this.condition=true;
       this.bankrate();
       console.log(res);
@@ -92,7 +94,8 @@ export class OnpayComponent implements OnInit {
       o1: '',
       o2: '',
       fullPay: this.total,
-      onValue: totrate
+      onValue: totrate,
+      catname:this.app_cat_name
     }
 
     console.log(param);
