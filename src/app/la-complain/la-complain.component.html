@@ -16,6 +16,12 @@
         <mat-table matSort [dataSource]="dataSource">
   
           <!-- Name Column -->
+          <ng-container matColumnDef="online_complain_id">
+            <mat-header-cell mat-sort-header *matHeaderCellDef> ID </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.online_complain_id}} </mat-cell>
+          </ng-container>
+
+          <!-- Name Column -->
           <ng-container matColumnDef="fullname">
             <mat-header-cell mat-sort-header *matHeaderCellDef> Name </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.fullname}} </mat-cell>

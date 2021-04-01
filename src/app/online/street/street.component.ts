@@ -246,12 +246,15 @@ export class StreetComponent implements OnInit {
       slLandSizeRds: this.land_size_rds,
       slTaxtype: this.tax_type,
       slvillageName: this.village_name,
-      online_cus_id: this.onuser[0].idOnline
+      online_cus_id: this.onuser[0].idOnline,
+      pre_sl_id : this.osl_id
     };
     console.log(obb);
     this.http.post(this.sline + 'saveStreet', obb).subscribe(res => {
       this.mg.message('success', 'Application Saved');
       console.log('elaaa');
+      this.lotno = '';
+      this.purpose = '';
     });
 
   }

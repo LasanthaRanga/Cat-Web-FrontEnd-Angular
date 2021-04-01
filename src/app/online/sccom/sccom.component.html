@@ -1,42 +1,81 @@
 <div class="container">
 
+    <mat-tab-group>
+        <mat-tab label="Complain">
+
+            <mat-card class="example-card" class="col-md-12">
+                <mat-card-header>
+                    <mat-card-title>Street Light Complain</mat-card-title>
+                    <mat-card-subtitle>Type here youre street Light complain
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+                <mat-card-content>
+
+                    <mat-form-field class="col-md-12">
+                        <input matInput type="text" id="road" name="road" required placeholder="මාර්ගයේ නම (Road Name)"
+                            [(ngModel)]="roadname" />
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field class="col-md-12">
+                        <input matInput type="text" id="postNo" name="postNo" required placeholder="කුළුණු අංකය (Pillar Number)"
+                            [(ngModel)]="postnum" />
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field class="col-md-12">
+                        <input matInput type="text" id="desc" name="desc" required placeholder="විස්තරය (Description)"
+                            [(ngModel)]="descri" />
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field class="col-md-12">
+                        <input matInput type="text" id="plandate" name="tellno" required placeholder="දුරකතන අංකය (Mobile Number)"
+                            [(ngModel)]="tellno" />
+                    </mat-form-field>
+                    <br>
+
+                    <mat-card-actions align="right">
+                        <button mat-raised-button type="submit" (click)="save_sl_com()" color="primary" type="submit">Submit</button>
+                    </mat-card-actions>
+                </mat-card-content>
+            </mat-card>
+
+        </mat-tab>
+
+        <mat-tab label="Submitted Complains">
+            <mat-card>
+                <mat-card-title>
+                    Youre Submitted Complains
+                </mat-card-title>
+                <mat-card-content>
+                    <table class="table table-hover">
+                        <thead class="text-info">
+                            <th>ID</th>
+                            <th>Date </th>
+                            <th>Piller No</th>
+                            <th>Complain</th>
+                            <!-- <th>more</th> -->
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of sl_com_list;">
+                                <td><label>{{item.slight_complain_id}}</label> </td>
+                                <td><label>{{item.slight_complain_date | date:'yyyy / MM / dd'}}</label> </td>
+                                <td><label>{{item.slight_complain_post_no}}</label> </td>
+                                <td><label>{{item.slight_complain_desc}}</label> </td>
+                                <!-- <td><span class="material-icons"
+                                        (click)="moreinfo(item.g_detail_id)">read_more</span> </td> -->
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <hr>
+
+                </mat-card-content>
+            </mat-card>
 
 
-    <mat-card class="example-card" class="col-md-12">
-        <mat-card-header>
-            <mat-card-title>Street Light Complain</mat-card-title>
-            <mat-card-subtitle>Type here youre street Light complain
-            </mat-card-subtitle>
-        </mat-card-header>
-        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-        <mat-card-content>
+        </mat-tab>
+    </mat-tab-group>
 
-            <mat-form-field class="col-md-12">
-                <input matInput type="text" id="road" name="road" required placeholder="මාර්ගයේ නම (Road Name)" 
-                    [(ngModel)]="roadname" />
-            </mat-form-field>
-            <br>
-            <mat-form-field class="col-md-12">
-                <input matInput type="text" id="postNo" name="postNo" required placeholder="කුළුණු අංකය (Pillar Number)"
-                    [(ngModel)]="postnum" />
-            </mat-form-field>
-            <br>
-            <mat-form-field class="col-md-12">
-                <input matInput type="text" id="desc" name="desc" required placeholder="විස්තරය (Description)"
-                    [(ngModel)]="descri" />
-            </mat-form-field>
-            <br>
-            <mat-form-field class="col-md-12">
-                <input matInput type="text" id="plandate" name="tellno" required placeholder="දුරකතන අංකය (Mobile Number)"
-                    [(ngModel)]="tellno" />
-            </mat-form-field>
-            <br>
 
-            <mat-card-actions align="right">
-                <button mat-raised-button type="submit" (click)="save_sl_com()" color="primary" type="submit">Submit</button>
-            </mat-card-actions>
-        </mat-card-content>
-    </mat-card>
 
-    
 </div>

@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LaComplainComponent implements OnInit {
 
-  displayedColumns: string[] = ['fullname', 'mobile', 'online_complains', 'online_complain_date', 'statuss'];
+  displayedColumns: string[] = ['online_complain_id', 'fullname', 'mobile', 'online_complains', 'online_complain_date', 'statuss'];
   dataSource = <any>[];
   urlVehicle = statics.ip + 'complains/';
 
@@ -24,10 +24,10 @@ export class LaComplainComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.loadAllVehicle();
+    this.loadAllcomplain();
   }
 
-  loadAllVehicle() {
+  loadAllcomplain() {
     this.http.post<any>(this.urlVehicle + 'allcomplain', {}).subscribe(res => {
       console.log(res);
       this.dataSource = new MatTableDataSource(res);
