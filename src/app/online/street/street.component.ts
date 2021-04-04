@@ -247,7 +247,7 @@ export class StreetComponent implements OnInit {
       slTaxtype: this.tax_type,
       slvillageName: this.village_name,
       online_cus_id: this.onuser[0].idOnline,
-      pre_sl_id : this.osl_id
+      pre_sl_id: this.osl_id
     };
     console.log(obb);
     this.http.post(this.sline + 'saveStreet', obb).subscribe(res => {
@@ -283,11 +283,20 @@ export class StreetComponent implements OnInit {
   }
 
   getcertificate() {
-    console.log('view');
+
+    // let obj = {
+    //   cus_name: "res[0].name",
+    //   add: "chilaw"
+    // }
+    // console.log('view');
+
+    
     //Response.redirect('http://localhost/certificate/');
     //this.doc.location.href('http://localhost/certificate/');
     //window.location.href = "http://localhost/certificate/";
-    window.location.href = "http://124.43.8.250:3032/sl_images/invoice/index.html";
+    //window.location.href = "http://124.43.8.250:3032/sl_images/invoice/index.html";
+    window.location.href = "https://chilawuc.cat2020.org/result/certificate/";
+    //window.location.href = "https://chilawuc.cat2020.org/result/certificate/?" + obj;
   }
 
 }
