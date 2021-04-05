@@ -74,7 +74,7 @@ export class GullyComponent implements OnInit {
 
 
   save_paydetails(detail_id){
-    var app_cat=15;
+    var app_cat=17;
     var cus_id = localStorage.getItem('g_cus_id');
     this.http.post(this.urlgully + 'savepaydetail', {onlin_pay_app_cat:app_cat,online_pay_application_id:detail_id,online_pay_amount:this.amount,cusid:cus_id}).subscribe(res => {
       console.log(res);
