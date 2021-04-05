@@ -211,7 +211,7 @@ export class PayassessComponent implements OnInit {
           },
           interaction: {
             merchant: {
-              name: this.assdata.cus_name,
+              name: this.assdata.assessment_no,
               address: {
                 line1: this.assdata.street_name,
                 line2: this.assdata.ward_name
