@@ -196,8 +196,24 @@ export class PayassessComponent implements OnInit {
     this.http.post(this.urlPay + 'pay', param).subscribe(data => {
 
       this.ses = data;
+      console.log("****************")
+
 
       console.log(this.ses);
+      let inter = {
+        merchant: {
+          name: this.assdata.assessment_no,
+          address: {
+            line1: this.assdata.street_name,
+            line2: this.assdata.ward_name
+          }
+        }
+      };
+
+      console.log("--------------");
+      console.log(inter);
+
+      console.log("****************")
 
       sessionStorage.setItem('boc', JSON.stringify(this.ses));
 
@@ -209,15 +225,7 @@ export class PayassessComponent implements OnInit {
           session: {
             id: this.ses.o2.session.id
           },
-          interaction: {
-            merchant: {
-              name: this.assdata.assessment_no,
-              address: {
-                line1: this.assdata.street_name,
-                line2: this.assdata.ward_name
-              }
-            }
-          }
+          interaction: inter
         });
 
         Checkout.showLightbox();
