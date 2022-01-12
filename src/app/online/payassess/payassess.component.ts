@@ -166,11 +166,13 @@ export class PayassessComponent implements OnInit {
   calTotal() {
     this.amount = Math.round(this.amount * 100) / 100;
 
-    this.onValue = this.amount * this.onRate / 100;
+    this.fullPay = this.amount * 100 / (100 - this.onRate );
+    this.fullPay = Math.round(this.fullPay * 100) / 100;
+
+    this.onValue =  this.fullPay - this.amount;
     this.onValue = Math.round(this.onValue * 100) / 100;
 
-    this.fullPay = this.amount + this.onValue;
-    this.fullPay = Math.round(this.fullPay * 100) / 100;
+    
 
   }
 
