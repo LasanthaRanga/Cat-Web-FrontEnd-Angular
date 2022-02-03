@@ -28,4 +28,6 @@
 // export const ip = 'https://kuliyapitiyaucapi.cat2020.org/online/';  // Kuliyapitiya API Online Payment
 
 
-export const ip = 'https://narammalapsapi.cat2020.org/online/';  // Kuliyapitiya API Online Payment
+// export const ip = 'https://narammalapsapi.cat2020.org/online/';  // Kuliyapitiya API Online Payment
+
+ export const ip = 'https://ibbagamuwapsapi.cat2020.org/online/';  // Ibbagamuwa API Online Payment
