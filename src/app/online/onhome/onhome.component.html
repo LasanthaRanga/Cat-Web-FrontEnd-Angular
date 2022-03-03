@@ -18,108 +18,114 @@
   </button>
 </mat-menu> -->
 
-
-
 <div class="container">
-
-
-  <br>
-
+  <br />
 
   <div class="row">
-
     <mat-card class="example-card" class="col-md-6">
       <mat-card-header>
         <mat-card-title>My Details</mat-card-title>
-
       </mat-card-header>
-      <hr>
+      <hr />
       <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
       <mat-card-content>
-        <p>Name : {{fullname}}</p>
-        <p>Email : {{email}}</p>
-        <p>NIC : {{nic}}</p>
+        <p>Name : {{ fullname }}</p>
+        <p>Email : {{ email }}</p>
+        <p>NIC : {{ nic }}</p>
       </mat-card-content>
     </mat-card>
     <mat-card class="example-card" class="col-md-6">
       <mat-card-header>
         <mat-card-title>Contact information</mat-card-title>
-        <mat-card-subtitle>If you want any support please contact us</mat-card-subtitle>
+        <mat-card-subtitle
+          >If you want any support please contact us</mat-card-subtitle
+        >
       </mat-card-header>
-      <hr>
+      <hr />
       <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
       <mat-card-content>
-        Name : Mr. Lahiru Fonseka <br>
-        Email : chilawurbancouncil@gmail.com <br>
-        Mobile : 0768331689 <br>
+        Name : {{ con_name }}<br />
+        Email : {{ con_email }}<br />
+        Mobile :{{ con_mobile }}<br />
       </mat-card-content>
     </mat-card>
   </div>
-  <br>
+  <br />
 
-
-
- 
-  <br>
-
+  <br />
 
   <mat-card class="example-card" class="col-md-12">
     <mat-card-header>
       <mat-card-title>My Properties</mat-card-title>
     </mat-card-header>
-    <hr>
+    <hr />
     <mat-card-content>
-
-
       <div>
-
         <div>
           <mat-table matSort [dataSource]="dataSource">
             <!-- Position Column -->
             <ng-container matColumnDef="application_name">
-              <mat-header-cell mat-sort-header *matHeaderCellDef> Category </mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element.application_name}} </mat-cell>
+              <mat-header-cell mat-sort-header *matHeaderCellDef>
+                Category
+              </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                {{ element.application_name }}
+              </mat-cell>
             </ng-container>
 
             <!-- Name Column -->
             <ng-container matColumnDef="owner_name">
-              <mat-header-cell mat-sort-header *matHeaderCellDef> Owner </mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element.owner_name}} </mat-cell>
-            </ng-container>
-
-
-            <!-- Name Column -->
-            <ng-container matColumnDef="status">
-              <mat-header-cell mat-sort-header *matHeaderCellDef> Status </mat-header-cell>
+              <mat-header-cell mat-sort-header *matHeaderCellDef>
+                Owner
+              </mat-header-cell>
               <mat-cell *matCellDef="let element">
-                <p *ngIf="element.status==0">Pending </p>
-                <p *ngIf="element.status==2">Rejected </p>
-                <button mat-raised-button color="primary" *ngIf="element.status==1"
-                  (click)="goToProperty(element.propid, element.appCat)">Go to pay</button>
+                {{ element.owner_name }}
               </mat-cell>
             </ng-container>
 
+            <!-- Name Column -->
+            <ng-container matColumnDef="status">
+              <mat-header-cell mat-sort-header *matHeaderCellDef>
+                Status
+              </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <p *ngIf="element.status == 0">Pending</p>
+                <p *ngIf="element.status == 2">Rejected</p>
+                <button
+                  mat-raised-button
+                  color="primary"
+                  *ngIf="element.status == 1"
+                  (click)="goToProperty(element.propid, element.appCat)"
+                >
+                  Go to pay
+                </button>
+              </mat-cell>
+            </ng-container>
 
-
-
-            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            <mat-header-row
+              *matHeaderRowDef="displayedColumns"
+            ></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
           </mat-table>
-          <mat-paginator [pageSizeOptions]="[20]" showFirstLastButtons></mat-paginator>
+          <mat-paginator
+            [pageSizeOptions]="[20]"
+            showFirstLastButtons
+          ></mat-paginator>
         </div>
-
       </div>
-
-
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" (click)="gotoMap()" type="submit">Map My Property</button>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="gotoMap()"
+        type="submit"
+      >
+        Map My Property
+      </button>
     </mat-card-actions>
   </mat-card>
 
-
-  <br>
-  <br><br>
-
-
+  <br />
+  <br /><br />
 </div>
